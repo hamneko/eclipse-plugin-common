@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: plugin-common
+Bundle-SymbolicName: plugin.common;singleton:=true
+Bundle-Version: 0.0.1
+Require-Bundle: org.eclipse.cdt.core,
+ org.eclipse.core.runtime
+Automatic-Module-Name: plugin.common
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: plugin.common.parser.scanner
