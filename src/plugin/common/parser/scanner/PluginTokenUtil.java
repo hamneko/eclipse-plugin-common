@@ -149,6 +149,7 @@ public class PluginTokenUtil {
 
 	public static void addSqlcaSqlerrmEcpg(PluginScanner scanner, IToken createFrom) {
 		scanner.tokens().add(createStructToken(scanner, createFrom));
+		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "sqlerrm"));
 		scanner.tokens().add(createLBraceToken(scanner, createFrom));
 		addSqlcaSqlerrml(scanner, createFrom);
 		addSqlcaSqlerrmc(scanner, createFrom);
