@@ -1,1 +1,29 @@
+:toc:
+:toclevels: 5
+
+---
+
 # eclipse-plugin-common
+
+A library required by the following Eclipse plugin:
+
+link:https://github.com/hamneko/eclipse-plugin-epcg[ECPG Plugin]
+link:https://github.com/hamneko/eclipse-plugin-db2[DB2 Plugin]
+
+Download the latest `plugin.common-x.x.x.YYYYMMDDhhmm.jar` file from https://github.com/hamneko/eclipse-plugin-common/releases[release] and put jar file to eclipse plugins directory.
+
+== Building from Source
+
+Clone the repository:
+
+[source,sh]
+----
+$ git clone https://github.com/hamneko/eclipse-plugin-common.git
+----
+
+Execute following command in cloned directory:
+
+[source,sh]
+----
+$ ./mvnw clean install
+----
