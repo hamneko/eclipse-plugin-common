@@ -12,8 +12,11 @@ import org.eclipse.cdt.core.parser.IncludeFileContentProvider;
 import org.eclipse.cdt.core.parser.ParserLanguage;
 import org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor;
 
+/**
+ * Abstract class that aggregates common processing of implementation classes.
+ */
 @SuppressWarnings("restriction")
-public class PluginScanner extends CPreprocessor {
+public abstract class PluginScanner extends CPreprocessor {
 
 	/*
 	 * Inner Queue for token manipulation.
