@@ -2,6 +2,9 @@ package plugin.common.parser.scanner;
 
 import org.eclipse.cdt.core.parser.IToken;
 
+/**
+ * Alternative token class to use in place of the actual token class.
+ */
 public class OverrideToken implements IToken {
 
 	private int type;

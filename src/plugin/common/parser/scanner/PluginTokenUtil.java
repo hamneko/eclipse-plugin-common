@@ -1,9 +1,14 @@
 package plugin.common.parser.scanner;
 
+import java.util.List;
+
 import org.eclipse.cdt.core.parser.IToken;
 import org.eclipse.cdt.internal.core.parser.scanner.TokenUtil;
 import org.eclipse.cdt.internal.core.parser.scanner.TokenWithImage;
 
+/**
+ * Utility class for tokens.
+ */
 @SuppressWarnings("restriction")
 public class PluginTokenUtil {
 
@@ -222,15 +227,6 @@ public class PluginTokenUtil {
 		scanner.tokens().add(createSemiToken(scanner, createFrom));
 	}
 
-	public static void addGlobalVariableTokens(PluginScanner scanner, IToken createFrom) {
-		scanner.tokens().add(createLongToken(scanner, createFrom));
-		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "SQLCODE"));
-		scanner.tokens().add(createSemiToken(scanner, createFrom));
-		scanner.tokens().add(createCharToken(scanner, createFrom));
-		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "SQLSTATE"));
-		scanner.tokens().add(createSemiToken(scanner, createFrom));
-	}
-
 	public static void addTypeDefs(PluginScanner scanner, IToken createFrom) {
 		addSqlint8(scanner, createFrom);
 		addSqluint8(scanner, createFrom);
@@ -300,5 +296,45 @@ public class PluginTokenUtil {
 		scanner.tokens().add(createLongToken(scanner, createFrom));
 		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "sqluint64"));
 		scanner.tokens().add(createSemiToken(scanner, createFrom));
+	}
+
+	public static void addSqlcaStructTokens(PluginScanner scanner, IToken createFrom) {
+		scanner.tokens().add(PluginTokenUtil.createStructToken(scanner, createFrom));
+		scanner.tokens().add(PluginTokenUtil.createIdentifierToken(scanner, createFrom, "sqlca"));
+		scanner.tokens().add(PluginTokenUtil.createIdentifierToken(scanner, createFrom, "sqlca"));
+		scanner.tokens().add(PluginTokenUtil.createSemiToken(scanner, createFrom));
+	}
+
+	public static void addSqlStateTokens(PluginScanner scanner, IToken createFrom) {
+		scanner.tokens().add(createCharToken(scanner, createFrom));
+		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "SQLSTATE"));
+		scanner.tokens().add(createSemiToken(scanner, createFrom));
+	}
+
+	public static void addSqlCodeTokens(PluginScanner scanner, IToken createFrom) {
+		scanner.tokens().add(createLongToken(scanner, createFrom));
+		scanner.tokens().add(createIdentifierToken(scanner, createFrom, "SQLCODE"));
+		scanner.tokens().add(createSemiToken(scanner, createFrom));
+	}
+
+	public static void addAssignLiteralTokens(PluginScanner scanner, IToken createFrom) {
+		scanner.tokens().add(PluginTokenUtil.createAssignToken(scanner, createFrom));
+		scanner.tokens().add(PluginTokenUtil.createLiteralToken(scanner, createFrom, ""));
+		scanner.tokens().add(PluginTokenUtil.createSemiToken(scanner, createFrom));
+	}
+
+	public static void addAssignIntegerTokens(PluginScanner scanner, IToken createFrom) {
+		scanner.tokens().add(PluginTokenUtil.createAssignToken(scanner, createFrom));
+		scanner.tokens().add(PluginTokenUtil.createIntegerToken(scanner, createFrom, "0"));
+		scanner.tokens().add(PluginTokenUtil.createSemiToken(scanner, createFrom));
+	}
+
+	public static boolean inPosition(List<ExecSqlPosition> execSqlPositions, int pos) {
+		for (ExecSqlPosition execSqlPosition : execSqlPositions) {
+			if (execSqlPosition.getFrom() <= pos && (execSqlPosition.getTo() - 2) >= pos) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

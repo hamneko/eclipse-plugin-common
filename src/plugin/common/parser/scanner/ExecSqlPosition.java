@@ -1,5 +1,8 @@
 package plugin.common.parser.scanner;
 
+/**
+ * holds positions of "EXEC" (as from) and ";" (as to).
+ */
 public class ExecSqlPosition {
 	int from;
 	int to;

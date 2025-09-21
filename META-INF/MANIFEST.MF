@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: plugin-common
 Bundle-SymbolicName: plugin.common;singleton:=true
 Bundle-Vendor: https://github.com/hamneko
-Bundle-Version: 0.2.0
+Bundle-Version: 0.2.1
 Require-Bundle: org.eclipse.cdt.core,
  org.eclipse.core.runtime
 Automatic-Module-Name: plugin.common
