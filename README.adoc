@@ -24,6 +24,8 @@ Clone the repository:
 $ git clone https://github.com/hamneko/eclipse-plugin-common.git
 ----
 
+Verify that the environment variable ECLIPSE_HOME is set. Note that ECLIPSE_HOME should be set to the path of the directory where the Eclipse executable files are located.
+
 Execute following command in cloned directory:
 
 [source,sh]
